@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A513C9221CF464EB00C5D2DF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A513C9211CF464EB00C5D2DF /* NetworkService.swift */; };
 		A5D379691CDE6F9F00AF808E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D379681CDE6F9F00AF808E /* AppDelegate.swift */; };
 		A5D3796B1CDE6F9F00AF808E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D3796A1CDE6F9F00AF808E /* ViewController.swift */; };
 		A5D3796E1CDE6F9F00AF808E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D3796C1CDE6F9F00AF808E /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A513C9211CF464EB00C5D2DF /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A5D379651CDE6F9F00AF808E /* ReviewerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReviewerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D379681CDE6F9F00AF808E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5D3796A1CDE6F9F00AF808E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A513C9201CF4649C00C5D2DF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A513C9211CF464EB00C5D2DF /* NetworkService.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		A5D3795C1CDE6F9E00AF808E = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +107,7 @@
 		A5D379671CDE6F9F00AF808E /* ReviewerApp */ = {
 			isa = PBXGroup;
 			children = (
+				A513C9201CF4649C00C5D2DF /* Network */,
 				A5D379681CDE6F9F00AF808E /* AppDelegate.swift */,
 				A5D3796A1CDE6F9F00AF808E /* ViewController.swift */,
 				A5D3796C1CDE6F9F00AF808E /* Main.storyboard */,
@@ -257,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5D3796B1CDE6F9F00AF808E /* ViewController.swift in Sources */,
+				A513C9221CF464EB00C5D2DF /* NetworkService.swift in Sources */,
 				A5D379691CDE6F9F00AF808E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +496,7 @@
 				A5D3798F1CDE6F9F00AF808E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5D379901CDE6F9F00AF808E /* Build configuration list for PBXNativeTarget "ReviewerAppTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +505,7 @@
 				A5D379921CDE6F9F00AF808E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5D379931CDE6F9F00AF808E /* Build configuration list for PBXNativeTarget "ReviewerAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +514,7 @@
 				A5D379951CDE6F9F00AF808E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

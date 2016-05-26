@@ -38,7 +38,6 @@ class NetworkService:NSObject {
                 do {
                     let dictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary
                     self.delegate!.didReceiveResponseForGetProductsList(dictionary!)
-                    print( "Response: \( dictionary )" )
                 } catch let jsonError as NSError {
                     // Handle parsing error
                     self.delegate!.didFailToReceiveResponseWithMessage("JSON error when trying to get products list")

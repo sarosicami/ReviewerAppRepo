@@ -7,9 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A513C9221CF464EB00C5D2DF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A513C9211CF464EB00C5D2DF /* NetworkService.swift */; };
+		A54D50431CF5E40E002785A3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54D50421CF5E40E002785A3 /* NetworkService.swift */; };
+		A54D50451CF5E430002785A3 /* arrow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = A54D50441CF5E430002785A3 /* arrow_down.png */; };
+		A54D504B1CF5F779002785A3 /* lenovo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A54D504A1CF5F779002785A3 /* lenovo.jpg */; };
+		A54D504D1CF5FAD9002785A3 /* arrow_right.png in Resources */ = {isa = PBXBuildFile; fileRef = A54D504C1CF5FAD9002785A3 /* arrow_right.png */; };
+		A557571C1CF6CD2900AE290B /* BrandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557571B1CF6CD2900AE290B /* BrandTableViewController.swift */; };
+		A557571E1CF7130800AE290B /* ProductDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557571D1CF7130800AE290B /* ProductDetailsTableViewController.swift */; };
+		A55757201CF7205200AE290B /* ReviewsSummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557571F1CF7205200AE290B /* ReviewsSummaryTableViewController.swift */; };
+		A59837C41CF73D06008D6938 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59837C31CF73D06008D6938 /* Product.swift */; };
+		A59837C61CF73DD6008D6938 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59837C51CF73DD6008D6938 /* Review.swift */; };
+		A59837CA1CF769D3008D6938 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59837C91CF769D3008D6938 /* ProductCell.swift */; };
+		A5C524CF1CF7291800D7E8A4 /* ReviewsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C524CE1CF7291800D7E8A4 /* ReviewsListTableViewController.swift */; };
 		A5D379691CDE6F9F00AF808E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D379681CDE6F9F00AF808E /* AppDelegate.swift */; };
-		A5D3796B1CDE6F9F00AF808E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D3796A1CDE6F9F00AF808E /* ViewController.swift */; };
+		A5D3796B1CDE6F9F00AF808E /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D3796A1CDE6F9F00AF808E /* ProductsViewController.swift */; };
 		A5D3796E1CDE6F9F00AF808E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D3796C1CDE6F9F00AF808E /* Main.storyboard */; };
 		A5D379701CDE6F9F00AF808E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5D3796F1CDE6F9F00AF808E /* Assets.xcassets */; };
 		A5D379731CDE6F9F00AF808E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D379711CDE6F9F00AF808E /* LaunchScreen.storyboard */; };
@@ -35,10 +45,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A513C9211CF464EB00C5D2DF /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		A54D50421CF5E40E002785A3 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = Network/NetworkService.swift; sourceTree = "<group>"; };
+		A54D50441CF5E430002785A3 /* arrow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_down.png; path = images/arrow_down.png; sourceTree = "<group>"; };
+		A54D504A1CF5F779002785A3 /* lenovo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lenovo.jpg; path = images/lenovo.jpg; sourceTree = "<group>"; };
+		A54D504C1CF5FAD9002785A3 /* arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_right.png; path = images/arrow_right.png; sourceTree = "<group>"; };
+		A557571B1CF6CD2900AE290B /* BrandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandTableViewController.swift; sourceTree = "<group>"; };
+		A557571D1CF7130800AE290B /* ProductDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsTableViewController.swift; sourceTree = "<group>"; };
+		A557571F1CF7205200AE290B /* ReviewsSummaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsSummaryTableViewController.swift; sourceTree = "<group>"; };
+		A59837C31CF73D06008D6938 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		A59837C51CF73DD6008D6938 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		A59837C91CF769D3008D6938 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		A5C524CE1CF7291800D7E8A4 /* ReviewsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsListTableViewController.swift; sourceTree = "<group>"; };
 		A5D379651CDE6F9F00AF808E /* ReviewerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReviewerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D379681CDE6F9F00AF808E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A5D3796A1CDE6F9F00AF808E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A5D3796A1CDE6F9F00AF808E /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		A5D3796D1CDE6F9F00AF808E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5D3796F1CDE6F9F00AF808E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5D379721CDE6F9F00AF808E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,12 +96,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A513C9201CF4649C00C5D2DF /* Network */ = {
+		A54D50461CF5E43A002785A3 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				A513C9211CF464EB00C5D2DF /* NetworkService.swift */,
+				A54D504C1CF5FAD9002785A3 /* arrow_right.png */,
+				A54D504A1CF5F779002785A3 /* lenovo.jpg */,
+				A54D50441CF5E430002785A3 /* arrow_down.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		A54D50471CF5E445002785A3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A54D50421CF5E40E002785A3 /* NetworkService.swift */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		A55757161CF6C58A00AE290B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5D3796A1CDE6F9F00AF808E /* ProductsViewController.swift */,
+				A557571B1CF6CD2900AE290B /* BrandTableViewController.swift */,
+				A557571D1CF7130800AE290B /* ProductDetailsTableViewController.swift */,
+				A557571F1CF7205200AE290B /* ReviewsSummaryTableViewController.swift */,
+				A5C524CE1CF7291800D7E8A4 /* ReviewsListTableViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A59837C01CF73B5F008D6938 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A59837C31CF73D06008D6938 /* Product.swift */,
+				A59837C51CF73DD6008D6938 /* Review.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A59837C71CF7699E008D6938 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A59837C81CF769B5008D6938 /* Cells */,
+				A55757161CF6C58A00AE290B /* Controllers */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		A59837C81CF769B5008D6938 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A59837C91CF769D3008D6938 /* ProductCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		A5D3795C1CDE6F9E00AF808E = {
@@ -107,9 +175,11 @@
 		A5D379671CDE6F9F00AF808E /* ReviewerApp */ = {
 			isa = PBXGroup;
 			children = (
-				A513C9201CF4649C00C5D2DF /* Network */,
+				A59837C71CF7699E008D6938 /* UI */,
+				A59837C01CF73B5F008D6938 /* Model */,
+				A54D50471CF5E445002785A3 /* Network */,
+				A54D50461CF5E43A002785A3 /* images */,
 				A5D379681CDE6F9F00AF808E /* AppDelegate.swift */,
-				A5D3796A1CDE6F9F00AF808E /* ViewController.swift */,
 				A5D3796C1CDE6F9F00AF808E /* Main.storyboard */,
 				A5D3796F1CDE6F9F00AF808E /* Assets.xcassets */,
 				A5D379711CDE6F9F00AF808E /* LaunchScreen.storyboard */,
@@ -241,7 +311,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5D379731CDE6F9F00AF808E /* LaunchScreen.storyboard in Resources */,
+				A54D504B1CF5F779002785A3 /* lenovo.jpg in Resources */,
+				A54D504D1CF5FAD9002785A3 /* arrow_right.png in Resources */,
 				A5D379701CDE6F9F00AF808E /* Assets.xcassets in Resources */,
+				A54D50451CF5E430002785A3 /* arrow_down.png in Resources */,
 				A5D3796E1CDE6F9F00AF808E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,9 +340,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5D3796B1CDE6F9F00AF808E /* ViewController.swift in Sources */,
-				A513C9221CF464EB00C5D2DF /* NetworkService.swift in Sources */,
+				A557571E1CF7130800AE290B /* ProductDetailsTableViewController.swift in Sources */,
+				A59837C41CF73D06008D6938 /* Product.swift in Sources */,
+				A59837C61CF73DD6008D6938 /* Review.swift in Sources */,
+				A5D3796B1CDE6F9F00AF808E /* ProductsViewController.swift in Sources */,
+				A55757201CF7205200AE290B /* ReviewsSummaryTableViewController.swift in Sources */,
+				A5C524CF1CF7291800D7E8A4 /* ReviewsListTableViewController.swift in Sources */,
+				A54D50431CF5E40E002785A3 /* NetworkService.swift in Sources */,
+				A59837CA1CF769D3008D6938 /* ProductCell.swift in Sources */,
 				A5D379691CDE6F9F00AF808E /* AppDelegate.swift in Sources */,
+				A557571C1CF6CD2900AE290B /* BrandTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

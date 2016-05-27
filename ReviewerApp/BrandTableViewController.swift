@@ -10,29 +10,38 @@ import UIKit
 
 class BrandTableViewController: UITableViewController {
     
-    @IBOutlet var brandTableView: UITableView!
+    // MARK: properties declaration
     var productsList = [Product]()
     var brands = [String]()
+    var selectedBrand = String()
+    
+    
+    // MARK: ViewController's methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // remove white padding on the left side of separator lines
-        self.brandTableView.layoutMargins = UIEdgeInsetsZero
-        self.brandTableView.separatorInset = UIEdgeInsetsZero
+        tableView.layoutMargins = UIEdgeInsetsZero
+        tableView.separatorInset = UIEdgeInsetsZero
         
         // hide separator lines for empty cells
-        self.brandTableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView()
+        
+        brands.append("All Brands")
+        
+        var uniqueBrands = [String]()
         
         // populate brands list
         for product in productsList {
-            brands.append(product.brand!)
+            uniqueBrands.append(product.brand!)
         }
         
-        brands = Array(Set(brands))
-        
+        uniqueBrands = Array(Set(uniqueBrands))
+        brands.appendContentsOf(uniqueBrands)
     }
-
     
+    
+    // MARK: TableView delegate & datasource methods
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -44,8 +53,28 @@ class BrandTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
         -> UITableViewCell {
             let cell = tableView.dequeueReusableCellWithIdentifier("BrandCell", forIndexPath: indexPath)
+            
             cell.layoutMargins = UIEdgeInsetsZero
+            
             cell.textLabel?.text = brands[indexPath.row]
+            
+            let brand = brands[indexPath.row]
+            
+            if brand == self.selectedBrand {
+                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryType.None
+            }
+            
             return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+        self.selectedBrand = brands[indexPath.row]
+        dispatch_async(dispatch_get_main_queue(), {
+            self.performSegueWithIdentifier("CancelBrandScreen", sender: self)
+        })
     }
 }

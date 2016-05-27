@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol NetworkServiceDelegate {
-    func didReceiveResponseForGetProductsList(info:NSDictionary)
-    func didReceiveResponseForGetProductWithID(info:NSDictionary)
-    func didReceiveResponseForGetProductReviewsWithID(info:NSDictionary)
-    func didFailToReceiveResponseWithMessage(message:NSString)
+@objc protocol NetworkServiceDelegate {
+    optional func didReceiveResponseForGetProductsList(info:NSDictionary)
+    optional func didReceiveResponseForGetProductWithID(info:NSDictionary)
+    optional func didReceiveResponseForGetProductReviewsWithID(info:NSDictionary)
+    optional func didFailToReceiveResponseWithMessage(message:NSString)
 }
 
 class NetworkService:NSObject {
@@ -32,15 +32,15 @@ class NetworkService:NSObject {
             (data, response, error) -> Void in
             
             if error != nil {
-                self.delegate!.didFailToReceiveResponseWithMessage("Response error when trying to get products list")
+                self.delegate!.didFailToReceiveResponseWithMessage!("Response error when trying to get products list")
                 print( "Reponse Error: \(error) " )
             } else {
                 do {
                     let dictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary
-                    self.delegate!.didReceiveResponseForGetProductsList(dictionary!)
+                    self.delegate!.didReceiveResponseForGetProductsList!(dictionary!)
                 } catch let jsonError as NSError {
                     // Handle parsing error
-                    self.delegate!.didFailToReceiveResponseWithMessage("JSON error when trying to get products list")
+                    self.delegate!.didFailToReceiveResponseWithMessage!("JSON error when trying to get products list")
                     print( "JSONError: \(jsonError.localizedDescription)")
                 }
             }
@@ -60,16 +60,16 @@ class NetworkService:NSObject {
             (data, response, error) -> Void in
             
             if error != nil {
-                self.delegate!.didFailToReceiveResponseWithMessage("Response error when trying to get the product")
+                self.delegate!.didFailToReceiveResponseWithMessage!("Response error when trying to get the product")
                 print( "Reponse Error: \(error) " )
             } else {
                 do {
                     let dictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary
-                    self.delegate!.didReceiveResponseForGetProductWithID(dictionary!)
+                    self.delegate!.didReceiveResponseForGetProductWithID!(dictionary!)
                     print( "Response: \( dictionary )" )
                 } catch let jsonError as NSError {
                     // Handle parsing error
-                    self.delegate!.didFailToReceiveResponseWithMessage("JSON error when trying to get the product")
+                    self.delegate!.didFailToReceiveResponseWithMessage!("JSON error when trying to get the product")
                     print( "JSONError: \(jsonError.localizedDescription)")
                 }
             }
@@ -89,16 +89,16 @@ class NetworkService:NSObject {
             (data, response, error) -> Void in
             
             if error != nil {
-                self.delegate!.didFailToReceiveResponseWithMessage("Response error when trying to get the reviews")
+                self.delegate!.didFailToReceiveResponseWithMessage!("Response error when trying to get the reviews")
                 print( "Reponse Error: \(error) " )
             } else {
                 do {
                     let dictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary
-                    self.delegate!.didReceiveResponseForGetProductReviewsWithID(dictionary!)
-                    print( "Response: \( dictionary )" )
+                    self.delegate!.didReceiveResponseForGetProductReviewsWithID!(dictionary!)
+//                    print( "Response: \( dictionary )" )
                 } catch let jsonError as NSError {
                     // Handle parsing error
-                    self.delegate!.didFailToReceiveResponseWithMessage("JSON error when trying to get the reviews")
+                    self.delegate!.didFailToReceiveResponseWithMessage!("JSON error when trying to get the reviews")
                     print( "JSONError: \(jsonError.localizedDescription)")
                 }
             }

@@ -15,12 +15,12 @@ struct Product {
     var processor: String?
     var display: String?
     var RAMMemory: String?
-    var memorySpeed: Int?
-    var hardDrive: Int?
+    var memorySpeed: String?
+    var hardDrive: String?
     var videoCard: String?
     var cardDescription: String?
-    var batteryLife: Int?
-    var weight: Double?
+    var batteryLife: String?
+    var weight: String?
     var housingMaterial: String?
     var color: String?
     var operatingSystem: String?
@@ -37,12 +37,12 @@ struct Product {
         self.processor = dict.valueForKey("processor") as? String
         self.display = dict.valueForKey("display") as? String
         self.RAMMemory = dict.valueForKey("RAM_memory") as? String
-        self.memorySpeed = dict.valueForKey("memory_speed") as? Int
-        self.hardDrive = dict.valueForKey("hard_drive") as? Int
+        self.memorySpeed = dict.valueForKey("memory_speed") as? String
+        self.hardDrive = dict.valueForKey("hard_drive") as? String
         self.videoCard = dict.valueForKey("video_card") as? String
         self.cardDescription = dict.valueForKey("card_description") as?  String
-        self.batteryLife = dict.valueForKey("battery_life") as? Int
-        self.weight = dict.valueForKey("item_weight") as? Double
+        self.batteryLife = dict.valueForKey("battery_life") as? String
+        self.weight = dict.valueForKey("item_weight") as? String
         self.housingMaterial = dict.valueForKey("housing_material") as?  String
         self.color = dict.valueForKey("color") as? String
         self.operatingSystem = dict.valueForKey("operating_system") as?  String

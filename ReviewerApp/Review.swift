@@ -9,14 +9,14 @@
 import UIKit
 
 struct Review {
-    var id: NSNumber?
+    var id: Int?
     var body:String?
-    var productId: NSNumber?
+    var productId: Int?
 
     init(dict: NSDictionary) {
-        self.id = dict.valueForKey("id") as? NSNumber
-        self.body = dict.valueForKey("brand") as? String
-        self.productId = dict.valueForKey("id") as? NSNumber
+        self.id = dict.valueForKey("id") as? Int
+        self.body = dict.valueForKey("body") as? String
+        self.productId = dict.valueForKey("product_id") as? Int
     }
 }
 

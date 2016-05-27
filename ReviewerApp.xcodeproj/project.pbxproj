@@ -12,8 +12,8 @@
 		A54D504B1CF5F779002785A3 /* lenovo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A54D504A1CF5F779002785A3 /* lenovo.jpg */; };
 		A54D504D1CF5FAD9002785A3 /* arrow_right.png in Resources */ = {isa = PBXBuildFile; fileRef = A54D504C1CF5FAD9002785A3 /* arrow_right.png */; };
 		A557571C1CF6CD2900AE290B /* BrandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557571B1CF6CD2900AE290B /* BrandTableViewController.swift */; };
-		A557571E1CF7130800AE290B /* ProductDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557571D1CF7130800AE290B /* ProductDetailsTableViewController.swift */; };
 		A55757201CF7205200AE290B /* ReviewsSummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557571F1CF7205200AE290B /* ReviewsSummaryTableViewController.swift */; };
+		A568E47F1CF84AD100922CF6 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568E47E1CF84AD100922CF6 /* ProductDetailsViewController.swift */; };
 		A59837C41CF73D06008D6938 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59837C31CF73D06008D6938 /* Product.swift */; };
 		A59837C61CF73DD6008D6938 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59837C51CF73DD6008D6938 /* Review.swift */; };
 		A59837CA1CF769D3008D6938 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59837C91CF769D3008D6938 /* ProductCell.swift */; };
@@ -50,8 +50,8 @@
 		A54D504A1CF5F779002785A3 /* lenovo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lenovo.jpg; path = images/lenovo.jpg; sourceTree = "<group>"; };
 		A54D504C1CF5FAD9002785A3 /* arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_right.png; path = images/arrow_right.png; sourceTree = "<group>"; };
 		A557571B1CF6CD2900AE290B /* BrandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandTableViewController.swift; sourceTree = "<group>"; };
-		A557571D1CF7130800AE290B /* ProductDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsTableViewController.swift; sourceTree = "<group>"; };
 		A557571F1CF7205200AE290B /* ReviewsSummaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsSummaryTableViewController.swift; sourceTree = "<group>"; };
+		A568E47E1CF84AD100922CF6 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		A59837C31CF73D06008D6938 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		A59837C51CF73DD6008D6938 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		A59837C91CF769D3008D6938 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -119,9 +119,9 @@
 			children = (
 				A5D3796A1CDE6F9F00AF808E /* ProductsViewController.swift */,
 				A557571B1CF6CD2900AE290B /* BrandTableViewController.swift */,
-				A557571D1CF7130800AE290B /* ProductDetailsTableViewController.swift */,
 				A557571F1CF7205200AE290B /* ReviewsSummaryTableViewController.swift */,
 				A5C524CE1CF7291800D7E8A4 /* ReviewsListTableViewController.swift */,
+				A568E47E1CF84AD100922CF6 /* ProductDetailsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -340,8 +340,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A557571E1CF7130800AE290B /* ProductDetailsTableViewController.swift in Sources */,
 				A59837C41CF73D06008D6938 /* Product.swift in Sources */,
+				A568E47F1CF84AD100922CF6 /* ProductDetailsViewController.swift in Sources */,
 				A59837C61CF73DD6008D6938 /* Review.swift in Sources */,
 				A5D3796B1CDE6F9F00AF808E /* ProductsViewController.swift in Sources */,
 				A55757201CF7205200AE290B /* ReviewsSummaryTableViewController.swift in Sources */,

@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ProductDetailsViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProductDetailsViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate, NetworkServiceDelegate {
     
     // MARK: properties declaration
     var product = Product()
+    var reviewsList = [Review]()
     
     @IBOutlet weak var productDetailsTableView: UITableView!
     
@@ -26,9 +27,31 @@ class ProductDetailsViewController:  UIViewController, UITableViewDataSource, UI
         // hide separator lines for empty cells
         self.productDetailsTableView.tableFooterView = UIView()
         
+        // get data from server
+        let service = NetworkService ()
+        service.delegate = self
+        service.getProductReviewsWithId(self.product.id!)
+        
         // configure table view to have cells with dynamic height
         self.productDetailsTableView.rowHeight = UITableViewAutomaticDimension
         self.productDetailsTableView.estimatedRowHeight = 44.0
+    }
+    
+    // MARK: Network-Service delegate methods
+    func didReceiveResponseForGetProductReviewsWithID(reviewsDict:NSDictionary) {
+        print("Info dictionary:\( reviewsDict )")
+        
+        if let reviews = reviewsDict.valueForKey("reviews") as? [NSDictionary] {
+            for reviewDict in reviews {
+                let review = Review(dict:reviewDict)
+                self.reviewsList.append(review)
+            }
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.productDetailsTableView.reloadData()
+        })
+
     }
     
     
@@ -114,11 +137,11 @@ class ProductDetailsViewController:  UIViewController, UITableViewDataSource, UI
         if (segue.identifier == "ReviewsSummarySegue") {
             let nc = segue.destinationViewController as! UINavigationController
             let destinationVC = nc.topViewController as! ReviewsSummaryTableViewController
-            destinationVC.product =  self.product
+            destinationVC.reviewsList =  self.reviewsList
         } else if (segue.identifier == "ReviewsListSegue") {
             let nc = segue.destinationViewController as! UINavigationController
             let destinationVC = nc.topViewController as! ReviewsListTableViewController
-            destinationVC.product =  self.product
+            destinationVC.reviewsList =  self.reviewsList
         }
     }
     

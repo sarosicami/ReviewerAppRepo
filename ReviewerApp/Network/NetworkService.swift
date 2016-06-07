@@ -12,6 +12,7 @@ import Foundation
     optional func didReceiveResponseForGetProductsList(info:NSDictionary)
     optional func didReceiveResponseForGetProductWithID(info:NSDictionary)
     optional func didReceiveResponseForGetProductReviewsWithID(info:NSDictionary)
+    optional func didReceiveResponseForGetReviewOpinionsWithID(info:NSDictionary)
     optional func didFailToReceiveResponseWithMessage(message:NSString)
 }
 
@@ -96,6 +97,35 @@ class NetworkService:NSObject {
                     let dictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary
                     self.delegate!.didReceiveResponseForGetProductReviewsWithID!(dictionary!)
 //                    print( "Response: \( dictionary )" )
+                } catch let jsonError as NSError {
+                    // Handle parsing error
+                    self.delegate!.didFailToReceiveResponseWithMessage!("JSON error when trying to get the reviews")
+                    print( "JSONError: \(jsonError.localizedDescription)")
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func getReviewOpinionsWithId(reviewID:NSInteger) {
+        let reviewIdString = String(reviewID)
+        let url: NSURL = NSURL(string: "http://localhost:5000/reviewer/api/opinions/" + reviewIdString)!
+        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL:url)
+        
+        let session = NSURLSession.sharedSession()
+        
+        let task = session.dataTaskWithRequest(urlRequest){
+            (data, response, error) -> Void in
+            
+            if error != nil {
+                self.delegate!.didFailToReceiveResponseWithMessage!("Response error when trying to get the reviews")
+                print( "Reponse Error: \(error) " )
+            } else {
+                do {
+                    let dictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary
+                    self.delegate!.didReceiveResponseForGetReviewOpinionsWithID!(dictionary!)
+                    //                    print( "Response: \( dictionary )" )
                 } catch let jsonError as NSError {
                     // Handle parsing error
                     self.delegate!.didFailToReceiveResponseWithMessage!("JSON error when trying to get the reviews")

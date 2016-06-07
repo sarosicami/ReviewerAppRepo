@@ -14,6 +14,7 @@ class BrandTableViewController: UITableViewController {
     var productsList = [Product]()
     var brands = [String]()
     var selectedBrand = String()
+    var selectedIndex = Int()
     
     
     // MARK: ViewController's methods
@@ -58,9 +59,7 @@ class BrandTableViewController: UITableViewController {
             
             cell.textLabel?.text = brands[indexPath.row]
             
-            let brand = brands[indexPath.row]
-            
-            if brand == self.selectedBrand {
+            if indexPath.row == self.selectedIndex {
                 cell.accessoryType = UITableViewCellAccessoryType.Checkmark
             } else {
                 cell.accessoryType = UITableViewCellAccessoryType.None
@@ -73,6 +72,7 @@ class BrandTableViewController: UITableViewController {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
         self.selectedBrand = brands[indexPath.row]
+        self.selectedIndex = indexPath.row
         dispatch_async(dispatch_get_main_queue(), {
             self.performSegueWithIdentifier("CancelBrandScreen", sender: self)
         })

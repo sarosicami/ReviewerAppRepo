@@ -14,7 +14,7 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
     @IBOutlet weak var productsTableView: UITableView!
     var productsList = [Product]()
     var product = Product()
-    var selectedBrand = String()
+    var selectedIndex = Int()
     @IBOutlet weak var selectedBrandButton: UIButton!
     
     // MARK: ViewController's methods
@@ -33,7 +33,11 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
         service.delegate = self
         service.getProductsList()
         
-        self.selectedBrand = "All Brands"
+        self.selectedIndex = 0
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -96,7 +100,7 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
         if (segue.identifier == "BrandSegue") {
             let destinationVC = nc.topViewController as! BrandTableViewController
             destinationVC.productsList =  self.productsList
-            destinationVC.selectedBrand = self.selectedBrand
+            destinationVC.selectedIndex = self.selectedIndex
         } else if (segue.identifier == "DetailsSegue") {
             let productCell = sender as! ProductCell
             let destinationVC = nc.topViewController as! ProductDetailsViewController
@@ -106,8 +110,8 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
     
     @IBAction func cancelOnChoosingBrand(unwindSegue:UIStoryboardSegue) {
         let sourceVC = unwindSegue.sourceViewController as! BrandTableViewController
-        self.selectedBrand = sourceVC.selectedBrand
-        self.selectedBrandButton.titleLabel!.text = self.selectedBrand
+        self.selectedIndex = sourceVC.selectedIndex
+        self.selectedBrandButton.setTitle(sourceVC.brands[sourceVC.selectedIndex], forState: .Normal)
     }
     @IBAction func cancelOnSeeingDetails(unwindSegue:UIStoryboardSegue) {
         

@@ -11,7 +11,6 @@ import UIKit
 class ReviewsListTableViewController : UITableViewController, NetworkServiceDelegate {
     
     // MARK: properties declaration
-    var product = Product()
     var reviewsList = [Review]()
     
     
@@ -26,32 +25,9 @@ class ReviewsListTableViewController : UITableViewController, NetworkServiceDele
         // hide separator lines for empty cells
         tableView.tableFooterView = UIView()
         
-        // get data from server
-        let service = NetworkService ()
-        service.delegate = self
-        service.getProductReviewsWithId(self.product.id!)
-        
         // configure table view to have cells with dynamic height
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
-    }
-    
-    
-    // MARK: Network-Service delegate methods
-    func didReceiveResponseForGetProductReviewsWithID(reviewsDict:NSDictionary) {
-        print("Info dictionary:\( reviewsDict )")
-        
-        if let reviews = reviewsDict.valueForKey("reviews") as? [NSDictionary] {
-            for reviewDict in reviews {
-                let review = Review(dict:reviewDict)
-                self.reviewsList.append(review)
-            }
-        }
-
-        dispatch_async(dispatch_get_main_queue(), {
-            self.tableView.reloadData()
-        })
-
     }
     
     func didFailToReceiveResponseWithMessage(message:NSString) {

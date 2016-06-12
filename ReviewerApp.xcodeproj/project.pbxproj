@@ -7,18 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A53F15271D0CBAB900CDA200 /* ReviewsSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53F15261D0CBAB900CDA200 /* ReviewsSummaryViewController.swift */; };
+		A53F15291D0CBACE00CDA200 /* AllReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53F15281D0CBACE00CDA200 /* AllReviewsViewController.swift */; };
+		A53F152B1D0CBDDA00CDA200 /* ReviewsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53F152A1D0CBDDA00CDA200 /* ReviewsTabBarController.swift */; };
+		A53F152D1D0CC60300CDA200 /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53F152C1D0CC60300CDA200 /* AddReviewViewController.swift */; };
 		A54D50431CF5E40E002785A3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54D50421CF5E40E002785A3 /* NetworkService.swift */; };
 		A54D50451CF5E430002785A3 /* arrow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = A54D50441CF5E430002785A3 /* arrow_down.png */; };
 		A54D504B1CF5F779002785A3 /* lenovo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A54D504A1CF5F779002785A3 /* lenovo.jpg */; };
 		A54D504D1CF5FAD9002785A3 /* arrow_right.png in Resources */ = {isa = PBXBuildFile; fileRef = A54D504C1CF5FAD9002785A3 /* arrow_right.png */; };
 		A557571C1CF6CD2900AE290B /* BrandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557571B1CF6CD2900AE290B /* BrandTableViewController.swift */; };
-		A55757201CF7205200AE290B /* ReviewsSummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557571F1CF7205200AE290B /* ReviewsSummaryTableViewController.swift */; };
 		A56688A71D075B8600E37299 /* Opinion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56688A61D075B8600E37299 /* Opinion.swift */; };
 		A568E47F1CF84AD100922CF6 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568E47E1CF84AD100922CF6 /* ProductDetailsViewController.swift */; };
 		A59837C41CF73D06008D6938 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59837C31CF73D06008D6938 /* Product.swift */; };
 		A59837C61CF73DD6008D6938 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59837C51CF73DD6008D6938 /* Review.swift */; };
 		A59837CA1CF769D3008D6938 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59837C91CF769D3008D6938 /* ProductCell.swift */; };
-		A5C524CF1CF7291800D7E8A4 /* ReviewsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C524CE1CF7291800D7E8A4 /* ReviewsListTableViewController.swift */; };
+		A59D2CA61D0C4B62008B676D /* SignOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59D2CA51D0C4B62008B676D /* SignOnViewController.swift */; };
+		A59D2CA81D0C7964008B676D /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59D2CA71D0C7963008B676D /* CreateAccountViewController.swift */; };
+		A59D2CAA1D0C87C7008B676D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59D2CA91D0C87C7008B676D /* SettingsViewController.swift */; };
+		A59D2CAC1D0C9295008B676D /* menu_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A59D2CAB1D0C9295008B676D /* menu_icon.png */; };
+		A59D2CAE1D0C971E008B676D /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59D2CAD1D0C971E008B676D /* SettingCell.swift */; };
 		A5D379691CDE6F9F00AF808E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D379681CDE6F9F00AF808E /* AppDelegate.swift */; };
 		A5D3796B1CDE6F9F00AF808E /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D3796A1CDE6F9F00AF808E /* ProductsViewController.swift */; };
 		A5D3796E1CDE6F9F00AF808E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D3796C1CDE6F9F00AF808E /* Main.storyboard */; };
@@ -46,18 +53,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A53F15261D0CBAB900CDA200 /* ReviewsSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsSummaryViewController.swift; sourceTree = "<group>"; };
+		A53F15281D0CBACE00CDA200 /* AllReviewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllReviewsViewController.swift; sourceTree = "<group>"; };
+		A53F152A1D0CBDDA00CDA200 /* ReviewsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsTabBarController.swift; sourceTree = "<group>"; };
+		A53F152C1D0CC60300CDA200 /* AddReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
 		A54D50421CF5E40E002785A3 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = Network/NetworkService.swift; sourceTree = "<group>"; };
 		A54D50441CF5E430002785A3 /* arrow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_down.png; path = images/arrow_down.png; sourceTree = "<group>"; };
 		A54D504A1CF5F779002785A3 /* lenovo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lenovo.jpg; path = images/lenovo.jpg; sourceTree = "<group>"; };
 		A54D504C1CF5FAD9002785A3 /* arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_right.png; path = images/arrow_right.png; sourceTree = "<group>"; };
 		A557571B1CF6CD2900AE290B /* BrandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandTableViewController.swift; sourceTree = "<group>"; };
-		A557571F1CF7205200AE290B /* ReviewsSummaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsSummaryTableViewController.swift; sourceTree = "<group>"; };
 		A56688A61D075B8600E37299 /* Opinion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opinion.swift; sourceTree = "<group>"; };
 		A568E47E1CF84AD100922CF6 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		A59837C31CF73D06008D6938 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		A59837C51CF73DD6008D6938 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		A59837C91CF769D3008D6938 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
-		A5C524CE1CF7291800D7E8A4 /* ReviewsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsListTableViewController.swift; sourceTree = "<group>"; };
+		A59D2CA51D0C4B62008B676D /* SignOnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignOnViewController.swift; sourceTree = "<group>"; };
+		A59D2CA71D0C7963008B676D /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		A59D2CA91D0C87C7008B676D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A59D2CAB1D0C9295008B676D /* menu_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_icon.png; path = images/menu_icon.png; sourceTree = "<group>"; };
+		A59D2CAD1D0C971E008B676D /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		A5D379651CDE6F9F00AF808E /* ReviewerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReviewerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D379681CDE6F9F00AF808E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5D3796A1CDE6F9F00AF808E /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +115,7 @@
 		A54D50461CF5E43A002785A3 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A59D2CAB1D0C9295008B676D /* menu_icon.png */,
 				A54D504C1CF5FAD9002785A3 /* arrow_right.png */,
 				A54D504A1CF5F779002785A3 /* lenovo.jpg */,
 				A54D50441CF5E430002785A3 /* arrow_down.png */,
@@ -121,9 +136,14 @@
 			children = (
 				A5D3796A1CDE6F9F00AF808E /* ProductsViewController.swift */,
 				A557571B1CF6CD2900AE290B /* BrandTableViewController.swift */,
-				A557571F1CF7205200AE290B /* ReviewsSummaryTableViewController.swift */,
-				A5C524CE1CF7291800D7E8A4 /* ReviewsListTableViewController.swift */,
 				A568E47E1CF84AD100922CF6 /* ProductDetailsViewController.swift */,
+				A59D2CA51D0C4B62008B676D /* SignOnViewController.swift */,
+				A59D2CA71D0C7963008B676D /* CreateAccountViewController.swift */,
+				A59D2CA91D0C87C7008B676D /* SettingsViewController.swift */,
+				A53F15261D0CBAB900CDA200 /* ReviewsSummaryViewController.swift */,
+				A53F15281D0CBACE00CDA200 /* AllReviewsViewController.swift */,
+				A53F152A1D0CBDDA00CDA200 /* ReviewsTabBarController.swift */,
+				A53F152C1D0CC60300CDA200 /* AddReviewViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -151,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				A59837C91CF769D3008D6938 /* ProductCell.swift */,
+				A59D2CAD1D0C971E008B676D /* SettingCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -317,6 +338,7 @@
 				A54D504B1CF5F779002785A3 /* lenovo.jpg in Resources */,
 				A54D504D1CF5FAD9002785A3 /* arrow_right.png in Resources */,
 				A5D379701CDE6F9F00AF808E /* Assets.xcassets in Resources */,
+				A59D2CAC1D0C9295008B676D /* menu_icon.png in Resources */,
 				A54D50451CF5E430002785A3 /* arrow_down.png in Resources */,
 				A5D3796E1CDE6F9F00AF808E /* Main.storyboard in Resources */,
 			);
@@ -345,12 +367,18 @@
 			files = (
 				A59837C41CF73D06008D6938 /* Product.swift in Sources */,
 				A568E47F1CF84AD100922CF6 /* ProductDetailsViewController.swift in Sources */,
+				A59D2CA61D0C4B62008B676D /* SignOnViewController.swift in Sources */,
 				A59837C61CF73DD6008D6938 /* Review.swift in Sources */,
+				A53F152D1D0CC60300CDA200 /* AddReviewViewController.swift in Sources */,
 				A5D3796B1CDE6F9F00AF808E /* ProductsViewController.swift in Sources */,
-				A55757201CF7205200AE290B /* ReviewsSummaryTableViewController.swift in Sources */,
-				A5C524CF1CF7291800D7E8A4 /* ReviewsListTableViewController.swift in Sources */,
+				A59D2CA81D0C7964008B676D /* CreateAccountViewController.swift in Sources */,
+				A53F152B1D0CBDDA00CDA200 /* ReviewsTabBarController.swift in Sources */,
+				A59D2CAE1D0C971E008B676D /* SettingCell.swift in Sources */,
 				A56688A71D075B8600E37299 /* Opinion.swift in Sources */,
+				A59D2CAA1D0C87C7008B676D /* SettingsViewController.swift in Sources */,
+				A53F15271D0CBAB900CDA200 /* ReviewsSummaryViewController.swift in Sources */,
 				A54D50431CF5E40E002785A3 /* NetworkService.swift in Sources */,
+				A53F15291D0CBACE00CDA200 /* AllReviewsViewController.swift in Sources */,
 				A59837CA1CF769D3008D6938 /* ProductCell.swift in Sources */,
 				A5D379691CDE6F9F00AF808E /* AppDelegate.swift in Sources */,
 				A557571C1CF6CD2900AE290B /* BrandTableViewController.swift in Sources */,

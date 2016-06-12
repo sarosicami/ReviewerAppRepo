@@ -96,14 +96,13 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
     
     // MARK: Controllers Navigation methods
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        let nc = segue.destinationViewController as! UINavigationController
         if (segue.identifier == "BrandSegue") {
-            let destinationVC = nc.topViewController as! BrandTableViewController
+            let destinationVC = segue.destinationViewController as! BrandTableViewController
             destinationVC.productsList =  self.productsList
             destinationVC.selectedIndex = self.selectedIndex
         } else if (segue.identifier == "DetailsSegue") {
             let productCell = sender as! ProductCell
-            let destinationVC = nc.topViewController as! ProductDetailsViewController
+            let destinationVC = segue.destinationViewController as! ProductDetailsViewController
             destinationVC.product =  self.productsList[productCell.tag]
         }
     }
@@ -112,9 +111,6 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
         let sourceVC = unwindSegue.sourceViewController as! BrandTableViewController
         self.selectedIndex = sourceVC.selectedIndex
         self.selectedBrandButton.setTitle(sourceVC.brands[sourceVC.selectedIndex], forState: .Normal)
-    }
-    @IBAction func cancelOnSeeingDetails(unwindSegue:UIStoryboardSegue) {
-        
     }
 }
 

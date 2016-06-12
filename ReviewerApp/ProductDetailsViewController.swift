@@ -134,22 +134,10 @@ class ProductDetailsViewController:  UIViewController, UITableViewDataSource, UI
     
     // MARK: Controllers Navigation methods
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "ReviewsSummarySegue") {
-            let nc = segue.destinationViewController as! UINavigationController
-            let destinationVC = nc.topViewController as! ReviewsSummaryTableViewController
-            destinationVC.reviewsList =  self.reviewsList
-        } else if (segue.identifier == "ReviewsListSegue") {
-            let nc = segue.destinationViewController as! UINavigationController
-            let destinationVC = nc.topViewController as! ReviewsListTableViewController
+        if (segue.identifier == "ReviewsSegue") {
+            let destinationVC = segue.destinationViewController as! ReviewsTabBarController
             destinationVC.reviewsList =  self.reviewsList
         }
-    }
-    
-    @IBAction func cancelOnSeeingReviewsSummary(unwindSegue:UIStoryboardSegue) {
-        
-    }
-    
-    @IBAction func cancelOnSeeingReviewsList(unwindSegue:UIStoryboardSegue) {
     }
 }
 

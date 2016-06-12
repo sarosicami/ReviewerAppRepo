@@ -1,14 +1,15 @@
 //
-//  ReviewsListTableViewController.swift
+//  AllReviewsViewController.swift
 //  ReviewerApp
 //
-//  Created by Camelia Sarosi on 5/26/16.
+//  Created by Camelia Sarosi on 6/12/16.
 //  Copyright © 2016 Camelia Sarosi. All rights reserved.
 //
 
 import UIKit
 
-class ReviewsListTableViewController : UITableViewController, NetworkServiceDelegate {
+class AllReviewsViewController : UIViewController, NetworkServiceDelegate {
+    @IBOutlet weak var allReviewsTableView: UITableView!
     
     // MARK: properties declaration
     var reviewsList = [Review]()
@@ -18,16 +19,25 @@ class ReviewsListTableViewController : UITableViewController, NetworkServiceDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tbvc = self.tabBarController  as! ReviewsTabBarController
+        tbvc.title = "All Reviews"
+        self.reviewsList = tbvc.reviewsList
+        
         // remove white padding on the left side of separator lines
-        tableView.layoutMargins = UIEdgeInsetsZero
-        tableView.separatorInset = UIEdgeInsetsZero
+        allReviewsTableView.layoutMargins = UIEdgeInsetsZero
+        allReviewsTableView.separatorInset = UIEdgeInsetsZero
         
         // hide separator lines for empty cells
-        tableView.tableFooterView = UIView()
+        allReviewsTableView.tableFooterView = UIView()
         
         // configure table view to have cells with dynamic height
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 44.0
+        allReviewsTableView.rowHeight = UITableViewAutomaticDimension
+        allReviewsTableView.estimatedRowHeight = 44.0
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let tbvc = self.tabBarController  as! ReviewsTabBarController
+        tbvc.title = "All Reviews"
     }
     
     func didFailToReceiveResponseWithMessage(message:NSString) {
@@ -36,15 +46,15 @@ class ReviewsListTableViewController : UITableViewController, NetworkServiceDele
     
     
     // MARK: TableView delegate & datasource methods
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.reviewsList.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
         -> UITableViewCell {
             let cell = tableView.dequeueReusableCellWithIdentifier("ReviewsCell", forIndexPath: indexPath)
             
@@ -57,3 +67,4 @@ class ReviewsListTableViewController : UITableViewController, NetworkServiceDele
             return cell
     }
 }
+

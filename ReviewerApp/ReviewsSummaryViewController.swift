@@ -1,27 +1,30 @@
 //
-//  ReviewsSummaryTableViewController.swift
+//  ReviewsSummaryViewController.swift
 //  ReviewerApp
 //
-//  Created by Camelia Sarosi on 5/26/16.
+//  Created by Camelia Sarosi on 6/12/16.
 //  Copyright © 2016 Camelia Sarosi. All rights reserved.
 //
 
 import UIKit
 
-class ReviewsSummaryTableViewController: UITableViewController, NetworkServiceDelegate {
+class ReviewsSummaryViewController: UIViewController, NetworkServiceDelegate {
+    @IBOutlet weak var reviewsSummaryTableView: UITableView!
     
     // MARK: properties declaration
     var reviewsList = [Review]()
     var opinionsList = [Opinion]()
     
-    
     // MARK: ViewController's methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tbvc = self.tabBarController  as! ReviewsTabBarController
+        self.reviewsList = tbvc.reviewsList
+        
         // remove white padding on the left side of separator lines
-        tableView.layoutMargins = UIEdgeInsetsZero
-        tableView.separatorInset = UIEdgeInsetsZero
+        reviewsSummaryTableView.layoutMargins = UIEdgeInsetsZero
+        reviewsSummaryTableView.separatorInset = UIEdgeInsetsZero
         
         let service = NetworkService ()
         service.delegate = self
@@ -30,11 +33,16 @@ class ReviewsSummaryTableViewController: UITableViewController, NetworkServiceDe
             service.getReviewOpinionsWithId(review.id!)
         }
         
-//        service.getReviewOpinionsWithId(self.reviewsList[0].id!)
+        //        service.getReviewOpinionsWithId(self.reviewsList[0].id!)
         
         
         // hide separator lines for empty cells
-        tableView.tableFooterView = UIView()
+        reviewsSummaryTableView.tableFooterView = UIView()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let tbvc = self.tabBarController  as! ReviewsTabBarController
+        tbvc.title = "Summary"
     }
     
     // MARK: Network-Service delegate methods
@@ -49,21 +57,21 @@ class ReviewsSummaryTableViewController: UITableViewController, NetworkServiceDe
         }
         
         dispatch_async(dispatch_get_main_queue(), {
-            self.tableView.reloadData()
+            self.reviewsSummaryTableView.reloadData()
         })
-
+        
     }
     
     // MARK: TableView delegate & datasource methods
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.opinionsList.count + 1
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
         -> UITableViewCell {
             var cellIdentifier = ""
             
@@ -86,3 +94,4 @@ class ReviewsSummaryTableViewController: UITableViewController, NetworkServiceDe
             return cell
     }
 }
+

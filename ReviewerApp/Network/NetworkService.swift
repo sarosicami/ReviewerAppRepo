@@ -14,6 +14,7 @@ import Foundation
     optional func didReceiveResponseForGetProductReviewsWithID(info:NSDictionary)
     optional func didReceiveResponseForGetReviewOpinionsWithID(info:NSDictionary)
     optional func didReceiveResponseForAddUserWithDict(info:NSDictionary)
+    optional func didReceiveResponseForLogInWithDict(info:NSDictionary)
     optional func didFailToReceiveResponseWithMessage(message:NSString)
 }
 
@@ -163,6 +164,39 @@ class NetworkService:NSObject {
                 } catch let jsonError as NSError {
                     // Handle parsing error
                     self.delegate!.didFailToReceiveResponseWithMessage!("JSON error when trying to add a new user")
+                    print( "JSONError: \(jsonError.localizedDescription)")
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func loginWithDict(userDict:NSDictionary) {
+        let url: NSURL = NSURL(string: "http://localhost:5000/reviewer/api/login")!
+        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL:url)
+        urlRequest.HTTPMethod = "POST"
+        
+        let session = NSURLSession.sharedSession()
+        
+        urlRequest.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(userDict, options:[])
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let task = session.dataTaskWithRequest(urlRequest){
+            (data, response, error) -> Void in
+            
+            if error != nil {
+                self.delegate!.didFailToReceiveResponseWithMessage!("Response error when trying to login")
+                print( "Reponse Error: \(error) " )
+            } else {
+                do {
+                    let dictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary
+                    self.delegate!.didReceiveResponseForLogInWithDict!(dictionary!)
+                    print( "Response: \( dictionary )" )
+                } catch let jsonError as NSError {
+                    // Handle parsing error
+                    self.delegate!.didFailToReceiveResponseWithMessage!("JSON error when trying to login")
                     print( "JSONError: \(jsonError.localizedDescription)")
                 }
             }

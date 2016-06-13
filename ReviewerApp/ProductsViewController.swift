@@ -20,6 +20,8 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
     // MARK: ViewController's methods
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        self.navigationItem.setHidesBackButton(true, animated:true);
         
         // remove white padding on the left side of separator lines
         self.productsTableView.layoutMargins = UIEdgeInsetsZero

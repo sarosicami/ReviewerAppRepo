@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-class SignOnViewController: UIViewController, UITextFieldDelegate  {
+class SignOnViewController: UIViewController, UITextFieldDelegate, NetworkServiceDelegate  {
     
     // MARK: properties declaration
     @IBOutlet weak var usernameTextField: UITextField!
@@ -44,5 +44,36 @@ class SignOnViewController: UIViewController, UITextFieldDelegate  {
             }
         }
         return true;
+    }
+    
+    // MARK: Utils methods
+    func resetTextFieldsData() {
+        usernameTextField.text = ""
+        passwordTextField.text = ""
+        usernameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+    
+    @IBAction func onLogIn(sender: AnyObject) {
+        // log into app
+        let service = NetworkService ()
+        service.delegate = self
+        let userDict = ["username":usernameTextField.text!, "password":passwordTextField.text!]
+        service.loginWithDict(userDict)
+    }
+    
+    func didReceiveResponseForLogInWithDict(userDict:NSDictionary) {
+        let user = User(dict:userDict)
+        if user.id > 0 {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.resetTextFieldsData()
+                let productsViewControllerObj = self.storyboard?.instantiateViewControllerWithIdentifier("ProductsID") as? ProductsViewController
+                self.navigationController?.pushViewController(productsViewControllerObj!, animated: true)
+            })
+        }
+    }
+    
+    func didFailToReceiveResponseWithMessage(message:NSString) {
+        print(message)
     }
 }

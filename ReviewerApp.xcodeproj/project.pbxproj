@@ -16,6 +16,7 @@
 		A54D504B1CF5F779002785A3 /* lenovo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A54D504A1CF5F779002785A3 /* lenovo.jpg */; };
 		A54D504D1CF5FAD9002785A3 /* arrow_right.png in Resources */ = {isa = PBXBuildFile; fileRef = A54D504C1CF5FAD9002785A3 /* arrow_right.png */; };
 		A557571C1CF6CD2900AE290B /* BrandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557571B1CF6CD2900AE290B /* BrandTableViewController.swift */; };
+		A563123E1D0F32CC00A06C2A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A563123D1D0F32CC00A06C2A /* User.swift */; };
 		A56688A71D075B8600E37299 /* Opinion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56688A61D075B8600E37299 /* Opinion.swift */; };
 		A568E47F1CF84AD100922CF6 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568E47E1CF84AD100922CF6 /* ProductDetailsViewController.swift */; };
 		A59837C41CF73D06008D6938 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59837C31CF73D06008D6938 /* Product.swift */; };
@@ -62,6 +63,7 @@
 		A54D504A1CF5F779002785A3 /* lenovo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lenovo.jpg; path = images/lenovo.jpg; sourceTree = "<group>"; };
 		A54D504C1CF5FAD9002785A3 /* arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_right.png; path = images/arrow_right.png; sourceTree = "<group>"; };
 		A557571B1CF6CD2900AE290B /* BrandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandTableViewController.swift; sourceTree = "<group>"; };
+		A563123D1D0F32CC00A06C2A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A56688A61D075B8600E37299 /* Opinion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opinion.swift; sourceTree = "<group>"; };
 		A568E47E1CF84AD100922CF6 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		A59837C31CF73D06008D6938 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				A59837C31CF73D06008D6938 /* Product.swift */,
 				A59837C51CF73DD6008D6938 /* Review.swift */,
 				A56688A61D075B8600E37299 /* Opinion.swift */,
+				A563123D1D0F32CC00A06C2A /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				A53F15271D0CBAB900CDA200 /* ReviewsSummaryViewController.swift in Sources */,
 				A54D50431CF5E40E002785A3 /* NetworkService.swift in Sources */,
 				A53F15291D0CBACE00CDA200 /* AllReviewsViewController.swift in Sources */,
+				A563123E1D0F32CC00A06C2A /* User.swift in Sources */,
 				A59837CA1CF769D3008D6938 /* ProductCell.swift in Sources */,
 				A5D379691CDE6F9F00AF808E /* AppDelegate.swift in Sources */,
 				A557571C1CF6CD2900AE290B /* BrandTableViewController.swift in Sources */,

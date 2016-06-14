@@ -12,11 +12,13 @@ struct Review {
     var id: Int?
     var body:String?
     var productId: Int?
+    var userId: Int?
 
     init(dict: NSDictionary) {
         self.id = dict.valueForKey("id") as? Int
         self.body = dict.valueForKey("body") as? String
         self.productId = dict.valueForKey("product_id") as? Int
+        self.userId = dict.valueForKey("user_id") as? Int
     }
 }
 

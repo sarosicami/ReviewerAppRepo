@@ -15,6 +15,7 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
     var productsList = [Product]()
     var product = Product()
     var selectedIndex = Int()
+    var loggedUser = User()
     @IBOutlet weak var selectedBrandButton: UIButton!
     
     // MARK: ViewController's methods
@@ -106,6 +107,7 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
             let productCell = sender as! ProductCell
             let destinationVC = segue.destinationViewController as! ProductDetailsViewController
             destinationVC.product =  self.productsList[productCell.tag]
+            destinationVC.loggedUser = self.loggedUser
         }
     }
     

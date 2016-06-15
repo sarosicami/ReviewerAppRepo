@@ -9,5 +9,7 @@
 import UIKit
 
 class ReviewsTabBarController:  UITabBarController {
+    var loggedUser = User()
     var reviewsList = [Review]()
+    var product = Product()
 }

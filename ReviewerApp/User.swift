@@ -15,6 +15,10 @@ struct User {
     var country: String?
     var isLogged: Bool?
     
+    init () {
+        
+    }
+    
     init(dict: NSDictionary) {
         self.id = dict.valueForKey("id") as? Int
         self.username = dict.valueForKey("username") as? String

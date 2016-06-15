@@ -13,6 +13,7 @@ class ProductDetailsViewController:  UIViewController, UITableViewDataSource, UI
     // MARK: properties declaration
     var product = Product()
     var reviewsList = [Review]()
+    var loggedUser = User()
     
     @IBOutlet weak var productDetailsTableView: UITableView!
     
@@ -137,6 +138,8 @@ class ProductDetailsViewController:  UIViewController, UITableViewDataSource, UI
         if (segue.identifier == "ReviewsSegue") {
             let destinationVC = segue.destinationViewController as! ReviewsTabBarController
             destinationVC.reviewsList =  self.reviewsList
+            destinationVC.loggedUser = self.loggedUser
+            destinationVC.product = self.product
         }
     }
 }

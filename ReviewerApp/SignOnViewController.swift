@@ -68,6 +68,7 @@ class SignOnViewController: UIViewController, UITextFieldDelegate, NetworkServic
             dispatch_async(dispatch_get_main_queue(), {
                 self.resetTextFieldsData()
                 let productsViewControllerObj = self.storyboard?.instantiateViewControllerWithIdentifier("ProductsID") as? ProductsViewController
+                productsViewControllerObj!.loggedUser = user
                 self.navigationController?.pushViewController(productsViewControllerObj!, animated: true)
             })
         }

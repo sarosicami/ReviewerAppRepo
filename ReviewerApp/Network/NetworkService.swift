@@ -15,6 +15,7 @@ import Foundation
     optional func didReceiveResponseForGetReviewOpinionsWithID(info:NSDictionary)
     optional func didReceiveResponseForAddUserWithDict(info:NSDictionary)
     optional func didReceiveResponseForLogInWithDict(info:NSDictionary)
+    optional func didReceiveResponseForAddReviewWithDict(info:NSDictionary)
     optional func didFailToReceiveResponseWithMessage(message:NSString)
 }
 
@@ -204,4 +205,39 @@ class NetworkService:NSObject {
         
         task.resume()
     }
+    
+    
+    func addReviewWithDict(reviewDict:NSDictionary) {
+        let url: NSURL = NSURL(string: "http://localhost:5000/reviewer/api/add_review")!
+        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL:url)
+        urlRequest.HTTPMethod = "POST"
+        
+        let session = NSURLSession.sharedSession()
+        
+        urlRequest.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(reviewDict, options:[])
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let task = session.dataTaskWithRequest(urlRequest){
+            (data, response, error) -> Void in
+            
+            if error != nil {
+                self.delegate!.didFailToReceiveResponseWithMessage!("Response error when trying to add a review")
+                print( "Reponse Error: \(error) " )
+            } else {
+                do {
+                    let dictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary
+                    self.delegate!.didReceiveResponseForAddReviewWithDict!(dictionary!)
+                    print( "Response: \( dictionary )" )
+                } catch let jsonError as NSError {
+                    // Handle parsing error
+                    self.delegate!.didFailToReceiveResponseWithMessage!("JSON error when trying to add a review")
+                    print( "JSONError: \(jsonError.localizedDescription)")
+                }
+            }
+        }
+        
+        task.resume()
+    }
+
 }

@@ -8,13 +8,19 @@
 
 import UIKit
 
-class AddReviewViewController : UIViewController {
+class AddReviewViewController : UIViewController, NetworkServiceDelegate {
     
+    var loggedUser = User()
+    var product = Product()
     @IBOutlet weak var reviewTextView: UITextView!
     
     // MARK: ViewController's methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tbvc = self.tabBarController  as! ReviewsTabBarController
+        self.loggedUser = tbvc.loggedUser
+        self.product = tbvc.product
         
         reviewTextView.autocorrectionType = UITextAutocorrectionType.No;
     }
@@ -24,7 +30,23 @@ class AddReviewViewController : UIViewController {
         tbvc.title = "Add Review"
     }
     
-    func saveReview() {
-        
+   
+    @IBAction func onPostReview(sender: AnyObject) {
+        let service = NetworkService ()
+        service.delegate = self
+        let stringUserId = String(loggedUser.id!)
+        print(stringUserId)
+        let stringProductId = String(product.id!)
+        let addReviewDict = ["user_id":stringUserId, "product_id":stringProductId, "review_text":reviewTextView.text]
+        service.addReviewWithDict(addReviewDict)
+    }
+    
+    // MARK: Network-Service delegate methods
+    func didReceiveResponseForAddReviewWithDict(info:NSDictionary) {
+        print(info)
+    }
+    
+    func didFailToReceiveResponseWithMessage(message:NSString) {
+        print(message)
     }
 }

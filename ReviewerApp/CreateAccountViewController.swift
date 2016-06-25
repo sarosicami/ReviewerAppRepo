@@ -11,6 +11,7 @@ import UIKit
 class CreateAccountViewController: UIViewController, UITextFieldDelegate, NetworkServiceDelegate  {
     
     // MARK: properties declaration
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
@@ -66,10 +67,13 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, Networ
     // MARK: Action methods
     @IBAction func onCreateAccount(sender: AnyObject) {
         // send data to server
-        let service = NetworkService ()
-        service.delegate = self
-        let addUserDict = ["username":usernameTextField.text!, "password":passwordTextField.text!, "email":emailTextField.text!, "country":countryTextField.text!]
-        service.addUserWithDict(addUserDict)
+        if loginInfoProvided() {
+            self.showActivityIndicator()
+            let service = NetworkService ()
+            service.delegate = self
+            let addUserDict = ["username":usernameTextField.text!, "password":passwordTextField.text!, "email":emailTextField.text!, "country":countryTextField.text!]
+            service.addUserWithDict(addUserDict)
+        }
     }
     
     // MARK: Utils methods
@@ -83,12 +87,82 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate, Networ
     
     // MARK: Network-Service delegate methods
     func didReceiveResponseForAddUserWithDict(info:NSDictionary) {
-        dispatch_async(dispatch_get_main_queue(), {
-             self.resetTextFieldsData()
-        })
+        let errorMessage = info.valueForKey("error") as? String
+        if !errorMessage!.isEmpty {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.stopActivityIndicator()
+                let alertMessage = UIAlertController(title: "", message:errorMessage, preferredStyle: .Alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alertMessage.addAction(defaultAction)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
+            })
+        } else {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.stopActivityIndicator()
+                let alertMessage = UIAlertController(title: "Your account has been successfully created!", message:errorMessage, preferredStyle: .Alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alertMessage.addAction(defaultAction)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
+                self.resetTextFieldsData()
+            })
+        }
     }
     func didFailToReceiveResponseWithMessage(message:NSString) {
         print(message)
     }
+    
+    func loginInfoProvided()->Bool {
+        if usernameTextField.text!.isEmpty {
+            let alertMessage = UIAlertController(title: "", message: "Please provide a username", preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertMessage.addAction(defaultAction)
+            presentViewController(alertMessage, animated: true, completion: nil)
+            return false
+        } else if passwordTextField.text!.isEmpty {
+            let alertMessage = UIAlertController(title: "", message: "Please provide a password", preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertMessage.addAction(defaultAction)
+            presentViewController(alertMessage, animated: true, completion: nil)
+            return false
+        } else if confirmPasswordTextField.text!.isEmpty {
+            let alertMessage = UIAlertController(title: "", message: "Please confirm your password", preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertMessage.addAction(defaultAction)
+            presentViewController(alertMessage, animated: true, completion: nil)
+            return false
+        } else if passwordTextField.text != confirmPasswordTextField.text {
+            let alertMessage = UIAlertController(title: "", message: "Password and confirmation password do not match", preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertMessage.addAction(defaultAction)
+            presentViewController(alertMessage, animated: true, completion: nil)
+            return false
+        } else if emailTextField.text!.isEmpty {
+            let alertMessage = UIAlertController(title: "", message: "Please provide an eMail address", preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertMessage.addAction(defaultAction)
+            presentViewController(alertMessage, animated: true, completion: nil)
+            return false
+        } else if countryTextField.text!.isEmpty {
+            let alertMessage = UIAlertController(title: "", message: "Please provide your country", preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertMessage.addAction(defaultAction)
+            presentViewController(alertMessage, animated: true, completion: nil)
+            return false
+        }
+        
+        return true
+    }
+    
+    func showActivityIndicator() {
+        activityIndicator.hidden = false;
+        self.view.bringSubviewToFront(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.hidden = true;
+    }
+
 }
 

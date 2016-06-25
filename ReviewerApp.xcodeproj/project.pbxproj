@@ -15,10 +15,12 @@
 		A54D50451CF5E430002785A3 /* arrow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = A54D50441CF5E430002785A3 /* arrow_down.png */; };
 		A54D504B1CF5F779002785A3 /* lenovo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A54D504A1CF5F779002785A3 /* lenovo.jpg */; };
 		A54D504D1CF5FAD9002785A3 /* arrow_right.png in Resources */ = {isa = PBXBuildFile; fileRef = A54D504C1CF5FAD9002785A3 /* arrow_right.png */; };
+		A55722331D12629B00ED12B1 /* arrow_up.png in Resources */ = {isa = PBXBuildFile; fileRef = A55722321D12629B00ED12B1 /* arrow_up.png */; };
 		A557571C1CF6CD2900AE290B /* BrandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557571B1CF6CD2900AE290B /* BrandTableViewController.swift */; };
 		A563123E1D0F32CC00A06C2A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A563123D1D0F32CC00A06C2A /* User.swift */; };
 		A56688A71D075B8600E37299 /* Opinion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56688A61D075B8600E37299 /* Opinion.swift */; };
 		A568E47F1CF84AD100922CF6 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568E47E1CF84AD100922CF6 /* ProductDetailsViewController.swift */; };
+		A5824EC41D1E5FAE0045882A /* launchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = A5824EC31D1E5FAE0045882A /* launchImage.png */; };
 		A59837C41CF73D06008D6938 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59837C31CF73D06008D6938 /* Product.swift */; };
 		A59837C61CF73DD6008D6938 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59837C51CF73DD6008D6938 /* Review.swift */; };
 		A59837CA1CF769D3008D6938 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59837C91CF769D3008D6938 /* ProductCell.swift */; };
@@ -62,10 +64,12 @@
 		A54D50441CF5E430002785A3 /* arrow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_down.png; path = images/arrow_down.png; sourceTree = "<group>"; };
 		A54D504A1CF5F779002785A3 /* lenovo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lenovo.jpg; path = images/lenovo.jpg; sourceTree = "<group>"; };
 		A54D504C1CF5FAD9002785A3 /* arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_right.png; path = images/arrow_right.png; sourceTree = "<group>"; };
+		A55722321D12629B00ED12B1 /* arrow_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_up.png; path = images/arrow_up.png; sourceTree = "<group>"; };
 		A557571B1CF6CD2900AE290B /* BrandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandTableViewController.swift; sourceTree = "<group>"; };
 		A563123D1D0F32CC00A06C2A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A56688A61D075B8600E37299 /* Opinion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opinion.swift; sourceTree = "<group>"; };
 		A568E47E1CF84AD100922CF6 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		A5824EC31D1E5FAE0045882A /* launchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launchImage.png; path = images/launchImage.png; sourceTree = "<group>"; };
 		A59837C31CF73D06008D6938 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		A59837C51CF73DD6008D6938 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		A59837C91CF769D3008D6938 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 		A54D50461CF5E43A002785A3 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A5824EC31D1E5FAE0045882A /* launchImage.png */,
+				A55722321D12629B00ED12B1 /* arrow_up.png */,
 				A59D2CAB1D0C9295008B676D /* menu_icon.png */,
 				A54D504C1CF5FAD9002785A3 /* arrow_right.png */,
 				A54D504A1CF5F779002785A3 /* lenovo.jpg */,
@@ -340,9 +346,11 @@
 				A5D379731CDE6F9F00AF808E /* LaunchScreen.storyboard in Resources */,
 				A54D504B1CF5F779002785A3 /* lenovo.jpg in Resources */,
 				A54D504D1CF5FAD9002785A3 /* arrow_right.png in Resources */,
+				A5824EC41D1E5FAE0045882A /* launchImage.png in Resources */,
 				A5D379701CDE6F9F00AF808E /* Assets.xcassets in Resources */,
 				A59D2CAC1D0C9295008B676D /* menu_icon.png in Resources */,
 				A54D50451CF5E430002785A3 /* arrow_down.png in Resources */,
+				A55722331D12629B00ED12B1 /* arrow_up.png in Resources */,
 				A5D3796E1CDE6F9F00AF808E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

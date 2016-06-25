@@ -17,6 +17,7 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
     var selectedIndex = Int()
     var loggedUser = User()
     @IBOutlet weak var selectedBrandButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: ViewController's methods
     override func viewDidLoad() {
@@ -37,10 +38,16 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
         service.getProductsList()
         
         self.selectedIndex = 0
+        
+        self.selectedBrandButton.setTitle("All Brands", forState:.Normal)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        if self.productsTableView.indexPathForSelectedRow != nil {
+            let indexPath: NSIndexPath = self.productsTableView.indexPathForSelectedRow!
+            self.productsTableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -114,7 +121,18 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
     @IBAction func cancelOnChoosingBrand(unwindSegue:UIStoryboardSegue) {
         let sourceVC = unwindSegue.sourceViewController as! BrandTableViewController
         self.selectedIndex = sourceVC.selectedIndex
-        self.selectedBrandButton.setTitle(sourceVC.brands[sourceVC.selectedIndex], forState: .Normal)
+        self.selectedBrandButton.setTitle(sourceVC.brands[sourceVC.selectedIndex], forState:.Normal)
+    }
+    
+    func showActivityIndicator() {
+        activityIndicator.hidden = false;
+        self.view.bringSubviewToFront(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.hidden = true;
     }
 }
 

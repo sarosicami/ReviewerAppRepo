@@ -10,6 +10,7 @@ import UIKit
 
 class AllReviewsViewController : UIViewController, NetworkServiceDelegate {
     @IBOutlet weak var allReviewsTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: properties declaration
     var reviewsList = [Review]()
@@ -65,6 +66,17 @@ class AllReviewsViewController : UIViewController, NetworkServiceDelegate {
             cell.textLabel?.text = review.body
             
             return cell
+    }
+    
+    func showActivityIndicator() {
+        activityIndicator.hidden = false;
+        self.view.bringSubviewToFront(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.hidden = true;
     }
 }
 

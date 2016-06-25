@@ -13,6 +13,7 @@ class ReviewsSummaryViewController: UIViewController, NetworkServiceDelegate {
     
     // MARK: properties declaration
     var reviewsList = [Review]()
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var opinionsList = [Opinion]()
     
     // MARK: ViewController's methods
@@ -92,6 +93,17 @@ class ReviewsSummaryViewController: UIViewController, NetworkServiceDelegate {
             cell.layoutMargins = UIEdgeInsetsZero
             
             return cell
+    }
+    
+    func showActivityIndicator() {
+        activityIndicator.hidden = false;
+        self.view.bringSubviewToFront(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.hidden = true;
     }
 }
 

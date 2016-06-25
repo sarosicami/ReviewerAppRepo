@@ -16,6 +16,7 @@ class ProductDetailsViewController:  UIViewController, UITableViewDataSource, UI
     var loggedUser = User()
     
     @IBOutlet weak var productDetailsTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: ViewController's methods
     override func viewDidLoad() {
@@ -141,6 +142,17 @@ class ProductDetailsViewController:  UIViewController, UITableViewDataSource, UI
             destinationVC.loggedUser = self.loggedUser
             destinationVC.product = self.product
         }
+    }
+    
+    func showActivityIndicator() {
+        activityIndicator.hidden = false;
+        self.view.bringSubviewToFront(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.hidden = true;
     }
 }
 

@@ -11,6 +11,7 @@ import UIKit
 
 class SettingsViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var settingsTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: ViewController's methods
     override func viewDidLoad() {
@@ -66,5 +67,16 @@ class SettingsViewController:  UIViewController, UITableViewDataSource, UITableV
         if indexPath.row == 3 {
             self.navigationController!.popToRootViewControllerAnimated(false)
         }
+    }
+    
+    func showActivityIndicator() {
+        activityIndicator.hidden = false;
+        self.view.bringSubviewToFront(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.hidden = true;
     }
 }

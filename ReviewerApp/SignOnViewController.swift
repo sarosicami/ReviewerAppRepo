@@ -14,7 +14,7 @@ class SignOnViewController: UIViewController, UITextFieldDelegate, NetworkServic
     // MARK: properties declaration
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     // MARK: ViewController's methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,28 +53,77 @@ class SignOnViewController: UIViewController, UITextFieldDelegate, NetworkServic
         usernameTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
     }
-    
+
     @IBAction func onLogIn(sender: AnyObject) {
         // log into app
-        let service = NetworkService ()
-        service.delegate = self
-        let userDict = ["username":usernameTextField.text!, "password":passwordTextField.text!]
-        service.loginWithDict(userDict)
+        if loginInfoProvided() {
+            self.showActivityIndicator()
+            let service = NetworkService ()
+            service.delegate = self
+            let userDict = ["username":usernameTextField.text!, "password":passwordTextField.text!]
+            service.loginWithDict(userDict)
+        }
     }
     
     func didReceiveResponseForLogInWithDict(userDict:NSDictionary) {
-        let user = User(dict:userDict)
-        if user.id > 0 {
+        let errorMessage = userDict.valueForKey("error") as? String
+        if !errorMessage!.isEmpty {
             dispatch_async(dispatch_get_main_queue(), {
-                self.resetTextFieldsData()
-                let productsViewControllerObj = self.storyboard?.instantiateViewControllerWithIdentifier("ProductsID") as? ProductsViewController
-                productsViewControllerObj!.loggedUser = user
-                self.navigationController?.pushViewController(productsViewControllerObj!, animated: true)
+            self.stopActivityIndicator()
+            let alertMessage = UIAlertController(title: "", message:errorMessage, preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertMessage.addAction(defaultAction)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
             })
+        } else {
+            let user = User(dict:userDict)
+            if user.id > 0 {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.stopActivityIndicator()
+                    self.resetTextFieldsData()
+                    let productsViewControllerObj = self.storyboard?.instantiateViewControllerWithIdentifier("ProductsID") as? ProductsViewController
+                    productsViewControllerObj!.loggedUser = user
+                    self.navigationController?.pushViewController(productsViewControllerObj!, animated: true)
+                })
+            }
         }
     }
     
     func didFailToReceiveResponseWithMessage(message:NSString) {
         print(message)
+    }
+    
+    func loginInfoProvided()->Bool {
+        if usernameTextField.text!.isEmpty && passwordTextField.text!.isEmpty{
+            let alertMessage = UIAlertController(title: "", message: "Please provide a username and a password", preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertMessage.addAction(defaultAction)
+            presentViewController(alertMessage, animated: true, completion: nil)
+            return false
+        } else if usernameTextField.text!.isEmpty && !passwordTextField.text!.isEmpty {
+            let alertMessage = UIAlertController(title: "", message: "Please provide a username", preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertMessage.addAction(defaultAction)
+            presentViewController(alertMessage, animated: true, completion: nil)
+            return false
+        } else if !usernameTextField.text!.isEmpty && passwordTextField.text!.isEmpty {
+            let alertMessage = UIAlertController(title: "", message: "Please provide a password", preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertMessage.addAction(defaultAction)
+            presentViewController(alertMessage, animated: true, completion: nil)
+            return false
+        }
+        return true
+    }
+    
+    func showActivityIndicator() {
+        activityIndicator.hidden = false;
+        self.view.bringSubviewToFront(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.hidden = true;
     }
 }

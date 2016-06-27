@@ -89,8 +89,14 @@ class SignOnViewController: UIViewController, UITextFieldDelegate, NetworkServic
         }
     }
     
-    func didFailToReceiveResponseWithMessage(message:NSString) {
-        print(message)
+    func didFailToReceiveResponseWithMessage(failureMessage:NSString) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.stopActivityIndicator()
+            let alertMessage = UIAlertController(title: "", message:failureMessage as String, preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertMessage.addAction(defaultAction)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        })
     }
     
     func loginInfoProvided()->Bool {

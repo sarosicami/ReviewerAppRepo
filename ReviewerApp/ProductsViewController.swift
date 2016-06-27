@@ -13,6 +13,7 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
     // MARK: properties declaration
     @IBOutlet weak var productsTableView: UITableView!
     var productsList = [Product]()
+    var currentProductsList = [Product]()
     var product = Product()
     var selectedIndex = Int()
     var loggedUser = User()
@@ -39,7 +40,15 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
         
         self.selectedIndex = 0
         
-        self.selectedBrandButton.setTitle("All Brands", forState:.Normal)
+        let attributedString = NSMutableAttributedString(string:"")
+        let attrs = [
+            NSFontAttributeName:UIFont(
+                name: "HelveticaNeue",
+                size: 18.0)!,
+            NSUnderlineStyleAttributeName : 1]
+        let buttonTitleStr = NSMutableAttributedString(string:"All Brands", attributes:attrs)
+        attributedString.appendAttributedString(buttonTitleStr)
+        self.selectedBrandButton.setAttributedTitle(attributedString, forState: .Normal)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -67,13 +76,21 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
             }
         }
         
+        self.currentProductsList = self.productsList
+        
         dispatch_async(dispatch_get_main_queue(), {
             self.productsTableView.reloadData()
         })
     }
     
-    func didFailToReceiveResponseWithMessage(message:NSString) {
-        print(message)
+    func didFailToReceiveResponseWithMessage(failureMessage:NSString) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.stopActivityIndicator()
+            let alertMessage = UIAlertController(title: "", message:failureMessage as String, preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertMessage.addAction(defaultAction)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        })
     }
     
     
@@ -83,7 +100,7 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.productsList.count
+        return self.currentProductsList.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
@@ -92,7 +109,7 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
             
             cell.layoutMargins = UIEdgeInsetsZero
             
-            let product = self.productsList[indexPath.row]
+            let product = self.currentProductsList[indexPath.row]
             cell.modelLabel.text = product.model
             cell.descriptionLabel.text = product.processor
             cell.tag = indexPath.row
@@ -121,7 +138,28 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
     @IBAction func cancelOnChoosingBrand(unwindSegue:UIStoryboardSegue) {
         let sourceVC = unwindSegue.sourceViewController as! BrandTableViewController
         self.selectedIndex = sourceVC.selectedIndex
-        self.selectedBrandButton.setTitle(sourceVC.brands[sourceVC.selectedIndex], forState:.Normal)
+        
+        let attributedString = NSMutableAttributedString(string:"")
+        let attrs = [
+            NSFontAttributeName:UIFont(
+                name: "HelveticaNeue",
+                size: 18.0)!,
+            NSUnderlineStyleAttributeName : 1]
+        let buttonTitleStr = NSMutableAttributedString(string:sourceVC.brands[sourceVC.selectedIndex], attributes:attrs)
+        attributedString.appendAttributedString(buttonTitleStr)
+        self.selectedBrandButton.setAttributedTitle(attributedString, forState: .Normal)
+        self.currentProductsList = [Product]()
+        
+        if sourceVC.brands[sourceVC.selectedIndex] == "All Brands" {
+            self.currentProductsList = self.productsList
+        } else {
+            for product in self.productsList {
+                if product.brand == sourceVC.brands[sourceVC.selectedIndex] {
+                    self.currentProductsList.append(product)
+                }
+            }
+        }
+        self.productsTableView.reloadData()
     }
     
     func showActivityIndicator() {

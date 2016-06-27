@@ -17,6 +17,12 @@
 		A54D504D1CF5FAD9002785A3 /* arrow_right.png in Resources */ = {isa = PBXBuildFile; fileRef = A54D504C1CF5FAD9002785A3 /* arrow_right.png */; };
 		A55722331D12629B00ED12B1 /* arrow_up.png in Resources */ = {isa = PBXBuildFile; fileRef = A55722321D12629B00ED12B1 /* arrow_up.png */; };
 		A557571C1CF6CD2900AE290B /* BrandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A557571B1CF6CD2900AE290B /* BrandTableViewController.swift */; };
+		A55D75071D1FAC6A0016B146 /* add_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A55D75041D1FAC6A0016B146 /* add_icon.png */; };
+		A55D75081D1FAC6A0016B146 /* all_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A55D75051D1FAC6A0016B146 /* all_icon.png */; };
+		A55D75091D1FAC6A0016B146 /* summary_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A55D75061D1FAC6A0016B146 /* summary_icon.png */; };
+		A55D750B1D200ABC0016B146 /* EmotionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55D750A1D200ABC0016B146 /* EmotionCell.swift */; };
+		A55D750D1D200ADE0016B146 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55D750C1D200ADE0016B146 /* CategoryCell.swift */; };
+		A55D750F1D200AFC0016B146 /* OpinionTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55D750E1D200AFC0016B146 /* OpinionTextCell.swift */; };
 		A563123E1D0F32CC00A06C2A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A563123D1D0F32CC00A06C2A /* User.swift */; };
 		A56688A71D075B8600E37299 /* Opinion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56688A61D075B8600E37299 /* Opinion.swift */; };
 		A568E47F1CF84AD100922CF6 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568E47E1CF84AD100922CF6 /* ProductDetailsViewController.swift */; };
@@ -66,6 +72,12 @@
 		A54D504C1CF5FAD9002785A3 /* arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_right.png; path = images/arrow_right.png; sourceTree = "<group>"; };
 		A55722321D12629B00ED12B1 /* arrow_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow_up.png; path = images/arrow_up.png; sourceTree = "<group>"; };
 		A557571B1CF6CD2900AE290B /* BrandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandTableViewController.swift; sourceTree = "<group>"; };
+		A55D75041D1FAC6A0016B146 /* add_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add_icon.png; path = images/add_icon.png; sourceTree = "<group>"; };
+		A55D75051D1FAC6A0016B146 /* all_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = all_icon.png; path = images/all_icon.png; sourceTree = "<group>"; };
+		A55D75061D1FAC6A0016B146 /* summary_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = summary_icon.png; path = images/summary_icon.png; sourceTree = "<group>"; };
+		A55D750A1D200ABC0016B146 /* EmotionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionCell.swift; sourceTree = "<group>"; };
+		A55D750C1D200ADE0016B146 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		A55D750E1D200AFC0016B146 /* OpinionTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpinionTextCell.swift; sourceTree = "<group>"; };
 		A563123D1D0F32CC00A06C2A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A56688A61D075B8600E37299 /* Opinion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opinion.swift; sourceTree = "<group>"; };
 		A568E47E1CF84AD100922CF6 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +133,9 @@
 		A54D50461CF5E43A002785A3 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A55D75041D1FAC6A0016B146 /* add_icon.png */,
+				A55D75051D1FAC6A0016B146 /* all_icon.png */,
+				A55D75061D1FAC6A0016B146 /* summary_icon.png */,
 				A5824EC31D1E5FAE0045882A /* launchImage.png */,
 				A55722321D12629B00ED12B1 /* arrow_up.png */,
 				A59D2CAB1D0C9295008B676D /* menu_icon.png */,
@@ -181,6 +196,9 @@
 			children = (
 				A59837C91CF769D3008D6938 /* ProductCell.swift */,
 				A59D2CAD1D0C971E008B676D /* SettingCell.swift */,
+				A55D750A1D200ABC0016B146 /* EmotionCell.swift */,
+				A55D750C1D200ADE0016B146 /* CategoryCell.swift */,
+				A55D750E1D200AFC0016B146 /* OpinionTextCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -345,13 +363,16 @@
 			files = (
 				A5D379731CDE6F9F00AF808E /* LaunchScreen.storyboard in Resources */,
 				A54D504B1CF5F779002785A3 /* lenovo.jpg in Resources */,
+				A55D75071D1FAC6A0016B146 /* add_icon.png in Resources */,
 				A54D504D1CF5FAD9002785A3 /* arrow_right.png in Resources */,
 				A5824EC41D1E5FAE0045882A /* launchImage.png in Resources */,
 				A5D379701CDE6F9F00AF808E /* Assets.xcassets in Resources */,
 				A59D2CAC1D0C9295008B676D /* menu_icon.png in Resources */,
 				A54D50451CF5E430002785A3 /* arrow_down.png in Resources */,
 				A55722331D12629B00ED12B1 /* arrow_up.png in Resources */,
+				A55D75091D1FAC6A0016B146 /* summary_icon.png in Resources */,
 				A5D3796E1CDE6F9F00AF808E /* Main.storyboard in Resources */,
+				A55D75081D1FAC6A0016B146 /* all_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +400,7 @@
 				A59837C41CF73D06008D6938 /* Product.swift in Sources */,
 				A568E47F1CF84AD100922CF6 /* ProductDetailsViewController.swift in Sources */,
 				A59D2CA61D0C4B62008B676D /* SignOnViewController.swift in Sources */,
+				A55D750F1D200AFC0016B146 /* OpinionTextCell.swift in Sources */,
 				A59837C61CF73DD6008D6938 /* Review.swift in Sources */,
 				A53F152D1D0CC60300CDA200 /* AddReviewViewController.swift in Sources */,
 				A5D3796B1CDE6F9F00AF808E /* ProductsViewController.swift in Sources */,
@@ -394,6 +416,8 @@
 				A59837CA1CF769D3008D6938 /* ProductCell.swift in Sources */,
 				A5D379691CDE6F9F00AF808E /* AppDelegate.swift in Sources */,
 				A557571C1CF6CD2900AE290B /* BrandTableViewController.swift in Sources */,
+				A55D750B1D200ABC0016B146 /* EmotionCell.swift in Sources */,
+				A55D750D1D200ADE0016B146 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

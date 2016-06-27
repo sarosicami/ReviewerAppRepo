@@ -12,5 +12,4 @@ class ProductCell: UITableViewCell {
     
     @IBOutlet weak var modelLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var productImageView: UIImageView!
 }

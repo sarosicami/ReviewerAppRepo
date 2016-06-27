@@ -13,7 +13,10 @@ class AllReviewsViewController : UIViewController, NetworkServiceDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: properties declaration
+    var product = Product()
     var reviewsList = [Review]()
+    
+    let service = NetworkService ()
     
     
     // MARK: ViewController's methods
@@ -21,8 +24,8 @@ class AllReviewsViewController : UIViewController, NetworkServiceDelegate {
         super.viewDidLoad()
         
         let tbvc = self.tabBarController  as! ReviewsTabBarController
-        tbvc.title = "All Reviews"
-        self.reviewsList = tbvc.reviewsList
+        product = tbvc.product
+//        reviewsList = tbvc.reviewsList
         
         // remove white padding on the left side of separator lines
         allReviewsTableView.layoutMargins = UIEdgeInsetsZero
@@ -34,15 +37,46 @@ class AllReviewsViewController : UIViewController, NetworkServiceDelegate {
         // configure table view to have cells with dynamic height
         allReviewsTableView.rowHeight = UITableViewAutomaticDimension
         allReviewsTableView.estimatedRowHeight = 44.0
+        
+        service.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        // get data from server
+        self.showActivityIndicator()
+        reviewsList = [Review]()
+        service.getProductReviewsWithId(self.product.id!)
     }
     
     override func viewDidAppear(animated: Bool) {
-        let tbvc = self.tabBarController  as! ReviewsTabBarController
+        let tbvc = tabBarController  as! ReviewsTabBarController
         tbvc.title = "All Reviews"
     }
     
-    func didFailToReceiveResponseWithMessage(message:NSString) {
-        print(message)
+    func didReceiveResponseForGetProductReviewsWithID(reviewsDict:NSDictionary) {
+        print("Info dictionary:\( reviewsDict )")
+        
+        if let reviews = reviewsDict.valueForKey("reviews") as? [NSDictionary] {
+            for reviewDict in reviews {
+                let review = Review(dict:reviewDict)
+                self.reviewsList.append(review)
+            }
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.stopActivityIndicator()
+            self.allReviewsTableView.reloadData()
+        })
+    }
+    
+    func didFailToReceiveResponseWithMessage(failureMessage:NSString) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.stopActivityIndicator()
+            let alertMessage = UIAlertController(title: "", message:failureMessage as String, preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertMessage.addAction(defaultAction)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        })
     }
     
     

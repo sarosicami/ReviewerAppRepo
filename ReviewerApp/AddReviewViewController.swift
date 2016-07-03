@@ -33,6 +33,8 @@ class AddReviewViewController : UIViewController, UITextViewDelegate, NetworkSer
     var negativeCategoryIndexes = [(category:String, index:Int)]()
     var negativeOpinionTextIndexes = [(opinionText:String, index:Int)]()
     
+    var reviewForSummary = String()
+    
     // MARK: ViewController's methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +84,7 @@ class AddReviewViewController : UIViewController, UITextViewDelegate, NetworkSer
     }
     
     @IBAction func onDisplaySummary(sender: AnyObject) {
-        if !(opinionsList.count > 0) {
+        if !(opinionsList.count > 0) || reviewForSummary != reviewTextView.text {
             let service = NetworkService ()
             service.delegate = self
             let stringUserId = String(loggedUser.id!)
@@ -90,6 +92,7 @@ class AddReviewViewController : UIViewController, UITextViewDelegate, NetworkSer
             let reviewSummaryDict = ["user_id":stringUserId, "product_id":stringProductId, "review_text":reviewTextView.text]
             self.showActivityIndicator()
             service.getReviewSummaryWithDict(reviewSummaryDict)
+            reviewForSummary = reviewTextView.text;
         } else {
             if summaryButton.titleLabel?.text == "See Summary" {
                 self.summaryButton.setTitle("Hide Summary", forState: .Normal)
@@ -173,7 +176,7 @@ class AddReviewViewController : UIViewController, UITextViewDelegate, NetworkSer
                 postReviewButton.userInteractionEnabled = true;
                 summaryButton .setTitleColor(UIColor(red:0.0/255.0, green:122.0/255.0, blue:255.0/255.0, alpha:1.0), forState: .Normal)
                 postReviewButton .setTitleColor(UIColor(red:0.0/255.0, green:122.0/255.0, blue:255.0/255.0, alpha:1.0), forState: .Normal)
-            } else if range.length == 1 {
+            } else if range.length == 1 && text.isEmpty {
                 self.opinionsList = [Opinion]()
                 self.addReviewTableView.reloadData()
                 summaryButton.userInteractionEnabled = false;
@@ -185,6 +188,14 @@ class AddReviewViewController : UIViewController, UITextViewDelegate, NetworkSer
             }
         }
         return true
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        if !reviewTextView.text.isEmpty && reviewTextView.text != reviewForSummary {
+            self.summaryButton.setTitle("See Summary", forState: .Normal)
+            self.arrowImageView.image = UIImage(named: "arrow_down")
+            self.addReviewTableView.hidden = true;
+        }
     }
     
     // MARK: TableView delegate & datasource methods

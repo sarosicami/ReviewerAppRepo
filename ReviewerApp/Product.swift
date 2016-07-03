@@ -36,7 +36,7 @@ struct Product {
         self.model = dict.valueForKey("product_model") as? String
         self.processor = dict.valueForKey("processor") as? String
         self.display = dict.valueForKey("display") as? String
-        self.RAMMemory = dict.valueForKey("RAM_memory") as? String
+        self.RAMMemory = dict.valueForKey("ram_memory") as? String
         self.memorySpeed = dict.valueForKey("memory_speed") as? String
         self.hardDrive = dict.valueForKey("hard_drive") as? String
         self.videoCard = dict.valueForKey("video_card") as? String

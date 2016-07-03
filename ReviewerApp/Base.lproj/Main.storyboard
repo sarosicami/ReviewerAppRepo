@@ -71,14 +71,22 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IC6-hc-nEq">
                                                     <rect key="frame" x="13" y="0.0" width="333" height="59"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BS-V4-MPc">
-                                                            <rect key="frame" x="0.0" y="30" width="265" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BS-V4-MPc">
+                                                            <rect key="frame" x="0.0" y="30" width="325" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="325" id="758-Lt-S25"/>
+                                                                <constraint firstAttribute="height" constant="21" id="9sI-wr-sWr"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                             <color key="textColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKU-en-c15">
-                                                            <rect key="frame" x="0.0" y="8" width="260" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKU-en-c15">
+                                                            <rect key="frame" x="0.0" y="8" width="325" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="FfW-cv-5Ci"/>
+                                                                <constraint firstAttribute="width" constant="325" id="Hwb-hG-Idq"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                                             <color key="textColor" red="0.92156862745098034" green="0.41176470588235292" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -86,6 +94,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstItem="7BS-V4-MPc" firstAttribute="leading" secondItem="IC6-hc-nEq" secondAttribute="leading" id="1la-Ht-40s"/>
+                                                        <constraint firstItem="7BS-V4-MPc" firstAttribute="top" secondItem="NKU-en-c15" secondAttribute="bottom" constant="1" id="DCm-Jm-vKm"/>
+                                                        <constraint firstItem="NKU-en-c15" firstAttribute="leading" secondItem="IC6-hc-nEq" secondAttribute="leading" id="arq-AI-Nbj"/>
+                                                        <constraint firstItem="NKU-en-c15" firstAttribute="top" secondItem="IC6-hc-nEq" secondAttribute="top" constant="8" id="ia0-KT-P1A"/>
                                                         <constraint firstAttribute="height" constant="59" id="wkw-mf-hG3"/>
                                                     </constraints>
                                                 </view>
@@ -868,15 +880,6 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aR-38-c67">
-                                        <rect key="frame" x="80" y="280" width="122" height="32"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="Create account"/>
-                                        <connections>
-                                            <action selector="onCreateAccount:" destination="4G3-m8-sAf" eventType="touchUpInside" id="G8i-xg-y70"/>
-                                        </connections>
-                                    </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9sZ-1n-aAe">
                                         <rect key="frame" x="20" y="75" width="242" height="30"/>
                                         <color key="textColor" red="0.16078431369999999" green="0.16078431369999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -901,6 +904,15 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aR-38-c67">
+                                        <rect key="frame" x="80" y="288" width="122" height="32"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Create account"/>
+                                        <connections>
+                                            <action selector="onCreateAccount:" destination="4G3-m8-sAf" eventType="touchUpInside" id="G8i-xg-y70"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>

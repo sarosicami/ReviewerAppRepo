@@ -12,6 +12,7 @@ import UIKit
 class SettingsViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var settingsTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var loggedUser = User()
     
     // MARK: ViewController's methods
     override func viewDidLoad() {
@@ -41,7 +42,7 @@ class SettingsViewController:  UIViewController, UITableViewDataSource, UITableV
                 let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath)
                 cell.layoutMargins = UIEdgeInsetsZero
                 cell.textLabel?.text = "User:"
-                //                cell.detailTextLabel?.text =
+                cell.detailTextLabel?.text = loggedUser.username
                 cell.selectionStyle = UITableViewCellSelectionStyle.None
                 
                 return cell

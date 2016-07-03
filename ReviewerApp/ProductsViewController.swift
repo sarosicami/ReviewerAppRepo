@@ -110,7 +110,7 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
             cell.layoutMargins = UIEdgeInsetsZero
             
             let product = self.currentProductsList[indexPath.row]
-            cell.modelLabel.text = product.model
+            cell.modelLabel.text = product.brand! + " " + product.model!
             cell.descriptionLabel.text = product.processor
             cell.tag = indexPath.row
             
@@ -130,7 +130,10 @@ class ProductsViewController: UIViewController, NetworkServiceDelegate, UITableV
         } else if (segue.identifier == "DetailsSegue") {
             let productCell = sender as! ProductCell
             let destinationVC = segue.destinationViewController as! ProductDetailsViewController
-            destinationVC.product =  self.productsList[productCell.tag]
+            destinationVC.product =  self.currentProductsList[productCell.tag]
+            destinationVC.loggedUser = self.loggedUser
+        } else if (segue.identifier == "SettingsSegue") {
+            let destinationVC = segue.destinationViewController as! SettingsViewController
             destinationVC.loggedUser = self.loggedUser
         }
     }
